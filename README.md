@@ -20,8 +20,6 @@ Lightweight express app which calls a configured endpoint periodically and calcu
   - It relies on the event loop so may not actually be run every second
   - It may still call endpoint after it's been cancelled.
 
-A more robust event-emission approach could be used if more complex requirements.
-
 ## Run
 
 To start the service, run
