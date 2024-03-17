@@ -19,6 +19,17 @@ Lightweight express app which calls a configured endpoint periodically and calcu
   - It is cancellable (i.e on exit); but
   - It relies on the event loop so may not actually be run every second
   - It may still call endpoint after it's been cancelled.
+ 
+### Future Improvements
+
+- This application will handle a single average counter per process, if it were to scale (e.g consume many average numbers per second) then either:
+  - Use of worker threads to parallelise, with limited scaling.
+  - Caching with a persistence layer
+would be required
+
+- Indeed, more expensive/latent processing would need to be asynchronous in nature, perhaps using an event-driven architecture
+  - Care would need to be taken to keep the main thread free to repsond to requests
+- Although the application would be suitable for a container based deployment model, any further configuration may need to be accompanied by something more dynamic than environment variables
 
 ## Run
 
