@@ -5,7 +5,7 @@ const csrngHandler = async (): Promise<number> => {
   if (body.status === "success") {
     return body.random;
   } else {
-    return Promise.reject(new Error(body));
+    return Promise.reject(new Error(JSON.stringify(body)));
   }
 };
 

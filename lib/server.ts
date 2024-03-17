@@ -17,7 +17,7 @@ const runServer = (fetchFunction = csrngHandler) => {
 
   app.get("/", (_, res) => {
     try {
-      const number = service.counter.getAverage();
+      const number = service.getAverage();
       res.status(200);
       res.send(`${number}`);
     } catch (err: any) {

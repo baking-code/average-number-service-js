@@ -3,13 +3,17 @@ import average, { Average } from "../utils/average";
 import getHandler from "../handlers";
 import logger from "../utils/logger";
 
-const INTERVAL = config.period; // 1s
+const INTERVAL = config.period; // 1s by default
 
+/**
+ * AverageNumberService coordinates calls to the given data fetching function and maintains
+ * the average via an instance of the Average class
+ */
 class AverageNumberService {
-  counter: Average;
+  private counter: Average;
   fetchFunction: () => Promise<number>;
-  runnable: boolean = true;
-  to: NodeJS.Timeout;
+  private runnable: boolean = true;
+  private timer: NodeJS.Timeout;
   // allow dependency injection for mocking
   constructor(fetchFunction = getHandler()) {
     this.counter = average;
@@ -38,13 +42,17 @@ class AverageNumberService {
   run() {
     if (this.runnable) {
       this.getData();
-      this.to = setTimeout(this.run.bind(this), INTERVAL);
+      this.timer = setTimeout(this.run.bind(this), INTERVAL);
     }
   }
 
   clear() {
     this.runnable = false;
-    clearTimeout(this.to);
+    clearTimeout(this.timer);
+  }
+
+  getAverage() {
+    return this.counter.getAverage();
   }
 }
 
