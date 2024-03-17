@@ -2,9 +2,11 @@ import AverageNumberService from "../../lib/service/averageNumberService";
 
 const mockNumbersFn = jest.fn();
 
+const MOCK_MAX = 10;
+
 beforeEach(() => {
   mockNumbersFn.mockReset();
-  mockNumbersFn.mockResolvedValue(Math.round(Math.random() * 10));
+  mockNumbersFn.mockResolvedValue(Math.round(Math.random() * MOCK_MAX));
 });
 describe("AverageNumberService", () => {
   let service;
@@ -18,7 +20,7 @@ describe("AverageNumberService", () => {
 
   it("should return a random number", async () => {
     const number = await service.getData();
-    expect(number).toBeLessThan(10);
+    expect(number).toBeLessThan(MOCK_MAX); // based on mock implementation
     expect(number).toBeGreaterThan(0);
   });
 

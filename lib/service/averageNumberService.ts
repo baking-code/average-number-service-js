@@ -30,7 +30,7 @@ class AverageNumberService {
       if (Number.isNaN(+randomNumber)) {
         throw new Error("Supplied number is not a number"); // to be caught below
       }
-      return this.counter.calculateNewAverage(randomNumber);
+      return this.counter.addNewNumber(randomNumber);
     } catch (err: any) {
       // rethrow any http errors for the express app to handle
       logger.error(err);

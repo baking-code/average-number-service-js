@@ -26,7 +26,7 @@ export class Average {
     return this.count;
   }
 
-  calculateNewAverage(next: number) {
+  addNewNumber(next: number) {
     this.latestValue = next;
     this.average = this.getNextAverage(next);
     this.count++;
