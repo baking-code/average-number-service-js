@@ -1,8 +1,9 @@
+import config from "config";
 import average, { Average } from "../utils/average";
 import getHandler from "../handlers";
 import logger from "../utils/logger";
 
-const INTERVAL = 1000; // 1s
+const INTERVAL = config.period; // 1s
 
 class AverageNumberService {
   counter: Average;

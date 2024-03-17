@@ -2,5 +2,6 @@
     "app": {
         "port": 3000
     },
-    "randomNumberHandler": "csrng"
+    "randomNumberHandler": "csrng",
+    "period": 1000
 }

@@ -2,5 +2,6 @@
     "app": {
         "port": "APP_PORT"
     },
-    "randomNumberUrl": "RANDOM_NUMBER_URL"
+    "randomNumberUrl": "RANDOM_NUMBER_URL",
+    "period": "POLLING_PERIOD"
 }
