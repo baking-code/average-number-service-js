@@ -1,0 +1,6 @@
+{
+    "app": {
+        "port": "APP_PORT"
+    },
+    "randomNumberUrl": "RANDOM_NUMBER_URL"
+}
